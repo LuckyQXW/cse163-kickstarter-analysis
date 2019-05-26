@@ -11,10 +11,41 @@ def preprocess_data(filename):
     Reads the KickStarter data and uses the launched date for index,
     returns a pandas DataFrame that only contains projects that have
     launched date from 2010-01-01 to 2017-12-31.
+    Takes in a Pandas DataFrame containing the data from the Kickstarter
+    platform. Filters down to only include projects that have launched data
+    from 2010-01-01 to 2017-12-31. Calculates the pledged ratio for each
+    project, extracts the launched month from the launched date index,
+    calculates the duration of each campaign in days, and stores them in new
+    columns.
+    Returns a new DataFrame with the extra information.
     """
     data = pd.read_csv(filename, index_col='launched', parse_dates=True)
     is_in_range = (data.index > '2010-01-01') & (data.index < '2017-12-31')
-    return data[is_in_range]
+    data = data[is_in_range].copy()
+    data.loc[:, 'pledged_ratio'] = data['usd_pledged_real'] \
+        / data['usd_goal_real']
+    data.loc[:, 'launched'] = data.index
+    data.loc[:, 'launched_month'] = data.loc[:, 'launched'].apply(get_month)
+    data.loc[:, 'launched'] = pd.to_datetime(data['launched'])
+    data.loc[:, 'deadline'] = pd.to_datetime(data['deadline'])
+    data.loc[:, 'duration'] = (data['deadline'] - data['launched']) \
+        .apply(get_duration_in_days)
+    return data
+
+
+def get_month(date):
+    """
+    Takes in a DatetimeIndex and returns the month as a String.
+    """
+    return (str)(date.month)
+
+
+def get_duration_in_days(timedelta):
+    """
+    Takes in a TimeDelta and returns the number of days in the TimeDelta
+    object as a numpy.int64.
+    """
+    return timedelta.days
 
 
 def main():
