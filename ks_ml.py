@@ -127,7 +127,7 @@ def graph_classification_combo(data, features, feature_index, label, max_goal):
 def print_result(measure, value, importances):
     """
     Takes in a String measure describing the type of the value used to evaluate
-    a machine learning model, a float value representing the accuracy/error 
+    a machine learning model, a float value representing the accuracy/error
     value depends on the machine learning model, and a list of tuples in the
     form of (feature, importance), prints the given information in a formatted
     manner.
@@ -140,6 +140,9 @@ def print_result(measure, value, importances):
 
 def run():
     data = main.preprocess_data('ks-projects-201801.csv')
+    successful = data['state'] == 'successful'
+    failed = data['state'] == 'failed'
+    data = data[successful | failed]
     label = 'state'
     label2 = 'pledged_ratio'
 
@@ -150,27 +153,26 @@ def run():
     features2 = ['launched_month', 'main_category', 'duration']
 
     # Graphs best depth using different combos
-    graph_classification_combo(data, features1, 1, label, 5000)
-    plt.clf()
     graph_classification_combo(data, features1, 1, label, 10000)
     plt.clf()
-    graph_classification_combo(data, features2, 2, label, 5000)
+    graph_classification_combo(data, features1, 1, label, 20000)
     plt.clf()
     graph_classification_combo(data, features2, 2, label, 10000)
+    plt.clf()
+    graph_classification_combo(data, features2, 2, label, 20000)
     plt.clf()
 
     # Prints the accuracy and feature importance ranking using the best depth
     # for the DecisionTreeClassifier
-    accuracy, importances = classifier(data, features1, label, 5000, depth=8)
+    accuracy, importances = classifier(data, features1, label, 10000, depth=9)
     print_result("Accuracy Score", accuracy, importances)
-    accuracy, importances = classifier(data, features1, label, 10000, depth=8)
+    accuracy, importances = classifier(data, features2, label, 10000, depth=12)
     print_result("Accuracy Score", accuracy, importances)
 
     # Prints the accuracy and feature importance ranking using regressor
-    error, importances = regressor(data, features1, label2, 5000)
-    print_result("Mean Square Error", error, importances)
-
     error, importances = regressor(data, features1, label2, 10000)
+    print_result("Mean Square Error", error, importances)
+    error, importances = regressor(data, features2, label2, 10000)
     print_result("Mean Square Error", error, importances)
 
 
