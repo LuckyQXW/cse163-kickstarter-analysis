@@ -57,11 +57,31 @@ def plot_month_counts(data):
     plt.clf()
 
 
+def plot_month_success_rate(data):
+    """
+    Takes in a Pandas DataFrame containing the Kickstarter data and plot the
+    percentage of successful project launched with respect to each month.
+    """
+    data.loc[:, 'launched_month'] = \
+        data.loc[:, 'launched_month'].apply(lambda x: int(x))
+    data_success = data[data['state'] == 'successful']
+    data_success_count = data_success.groupby('launched_month')['ID'].count()
+    data_count = data.groupby('launched_month')['ID'].count()
+    success_rate = data_success_count / data_count * 100
+    success_rate.plot.bar()
+    plt.title('Percentage of Successful Projects Launched Each Month')
+    plt.xlabel('Launched Month')
+    plt.ylabel('Percentage of Successful Projects (%)')
+    plt.savefig('success_rate_over_month.jpg')
+    plt.clf()
+
+
 def run():
     data = main.preprocess_data('ks-projects-201801.csv')
     plot_success_fail_vs_total(data)
     plot_success_rate(data)
     plot_month_counts(data)
+    plot_month_success_rate(data)
 
 
 if __name__ == '__main__':
