@@ -64,6 +64,7 @@ def classifier(data, features, feature_index, label, max_goal, min_goal=250):
                         features, max_goal)
     # Make prediction on test set using the best depth
     best_depth = graph_data.nlargest(1, 'Score')['Max Depth'].iloc[0]
+    print('Predicting test set using the depth of: ' + str(best_depth))
     clf = DecisionTreeClassifier(max_depth=best_depth)
     clf.fit(X_train, y_train)
     y_pred = clf.predict(X_test)
@@ -105,6 +106,7 @@ def regressor(data, features, feature_index, label, max_goal, min_goal=250):
     # Make prediction on test set using the best depth
     best_depth = graph_data. \
         nlargest(1, 'Negative Mean Square Error')['Max Depth'].iloc[0]
+    print('Predicting test set using the depth of: ' + str(best_depth))
     clf = DecisionTreeRegressor(max_depth=best_depth)
     clf.fit(X_train, y_train)
     y_pred = clf.predict(X_test)
@@ -161,7 +163,7 @@ def classifier_trial(data, features, feature_index, label, max_goal):
     feature importance ranking.
     '''
     print('Result for classifying success/fail with feature set ' +
-          str(feature_index) + ',' + 'max goal $' + str(max_goal) + ': ')
+          str(feature_index) + ', max goal $' + str(max_goal) + ': ')
     accuracy, importances = \
         classifier(data, features, feature_index, label, max_goal)
     print_result('Accuracy Score', accuracy, importances)
@@ -176,7 +178,7 @@ def regressor_trial(data, features, feature_index, label, max_goal):
     feature importance ranking.
     '''
     print('Result for classifying pledged ratio with feature set ' +
-          str(feature_index) + ',' + 'max goal $' + str(max_goal) + ': ')
+          str(feature_index) + ', max goal $' + str(max_goal) + ': ')
     error, importances = \
         regressor(data, features, feature_index, label, max_goal)
     print_result('Mean Squared Error', error, importances)
