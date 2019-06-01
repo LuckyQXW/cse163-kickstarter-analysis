@@ -1,5 +1,6 @@
 Result for classifying success/fail with feature set 1, max goal $10000: 
 Accuracy Score: 0.9247501766427778
+Feature importance ranking: 
 ('backers', 0.8487215937305467)
 ('usd_goal_real', 0.13221317789212841)
 ('main_category_Games', 0.007385172147051786)
@@ -33,6 +34,7 @@ Accuracy Score: 0.9247501766427778
 
 Result for classifying success/fail with feature set 2, max goal $10000: 
 Accuracy Score: 0.6191329363076612
+Feature importance ranking: 
 ('duration', 0.41520159751639285)
 ('main_category_Theater', 0.09907587735217971)
 ('main_category_Music', 0.08277660115308103)
@@ -64,6 +66,7 @@ Accuracy Score: 0.6191329363076612
 
 Result for classifying success/fail with feature set 1, max goal $20000: 
 Accuracy Score: 0.9255737770409285
+Feature importance ranking: 
 ('backers', 0.814409438031126)
 ('usd_goal_real', 0.15995959351040745)
 ('main_category_Games', 0.010330110863559842)
@@ -97,6 +100,7 @@ Accuracy Score: 0.9255737770409285
 
 Result for classifying success/fail with feature set 2, max goal $20000: 
 Accuracy Score: 0.6227952779497833
+Feature importance ranking: 
 ('duration', 0.43289002570994123)
 ('main_category_Theater', 0.0957607223481568)
 ('main_category_Music', 0.09504009058478245)
@@ -128,6 +132,7 @@ Accuracy Score: 0.6227952779497833
 
 Result for predicting pledged ratio with feature set 1, max goal $10000: 
 Mean Squared Error: 3.7996126392874325
+Feature importance ranking: 
 ('backers', 0.46908825177289587)
 ('usd_goal_real', 0.4135522665171428)
 ('duration', 0.050817591914220646)
@@ -161,6 +166,7 @@ Mean Squared Error: 3.7996126392874325
 
 Result for predicting pledged ratio with feature set 2, max goal $10000: 
 Mean Squared Error: 9.301947683698241
+Feature importance ranking: 
 ('main_category_Games', 0.4194459210086479)
 ('main_category_Design', 0.2631241700006844)
 ('duration', 0.22435869424312177)
@@ -192,6 +198,7 @@ Mean Squared Error: 9.301947683698241
 
 Result for predicting pledged ratio with feature set 1, max goal $20000: 
 Mean Squared Error: 4.0557575071092336
+Feature importance ranking: 
 ('backers', 0.6520755939667915)
 ('usd_goal_real', 0.24048836388628947)
 ('duration', 0.0371343561479653)
@@ -223,7 +230,8 @@ Mean Squared Error: 4.0557575071092336
 ('main_category_Technology', 0.0)
 ('main_category_Theater', 0.0)
 
-Result for predicting pledged ratio with feature set 2, max goal $20000: 
+Result for predicting pledged ratio with feature set 2, max goal $20000:
+Feature importance ranking: 
 Mean Squared Error: 24.76187150406781
 ('main_category_Games', 0.3770106291495397)
 ('main_category_Design', 0.30502402529935513)

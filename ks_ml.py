@@ -12,8 +12,29 @@ import main
 sns.set()
 
 
+def get_splitted_data(data, features, label, max_goal, min_goal):
+    '''
+    Takes in a Pandas DataFrame containing the data from the Kickstarter
+    platform, a list of feature column names features, an integer feature
+    index for differentiating different feature sets, a String label, the
+    maximum usd goal amount max_goal (exclusive), and the minimum usd goal
+    amount min_goal (inclusive).
+    Returns the data splitted in the training set and the test set in the
+    form of X_train, X_test, y_train, y_test.
+    '''
+    filtered = data[(data['usd_goal_real'] < max_goal)
+                    & (data['usd_goal_real'] >= min_goal)]
+    columns = features.copy()
+    columns.append(label)
+    filtered_ml = filtered[columns]
+    X = filtered_ml.loc[:, filtered_ml.columns != label]
+    X = pd.get_dummies(X)
+    y = filtered_ml[label]
+    return train_test_split(X, y, test_size=0.2)
+
+
 def classifier(data, features, feature_index, label, max_goal, min_goal=250):
-    """
+    '''
     Takes in a Pandas DataFrame containing the data from the Kickstarter
     platform, a list of feature column names features, an integer feature
     index for differentiating different feature sets, a String label, the
@@ -26,16 +47,9 @@ def classifier(data, features, feature_index, label, max_goal, min_goal=250):
     score of the test set and the second element be a list of feature
     importances sorted in descending order in the form of
     (feature, importance).
-    """
-    filtered = data[(data['usd_goal_real'] < max_goal)
-                    & (data['usd_goal_real'] >= min_goal)]
-    columns = features.copy()
-    columns.append(label)
-    filtered_ml = filtered[columns]
-    X = filtered_ml.loc[:, filtered_ml.columns != label]
-    X = pd.get_dummies(X)
-    y = filtered_ml[label]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+    '''
+    X_train, X_test, y_train, y_test = \
+        get_splitted_data(data, features, label, max_goal, min_goal)
     # Find the best depth using 7-fold cross validation and graph the result
     depth = []
     for i in range(3, 20):
@@ -59,7 +73,7 @@ def classifier(data, features, feature_index, label, max_goal, min_goal=250):
 
 
 def regressor(data, features, feature_index, label, max_goal, min_goal=250):
-    """
+    '''
     Takes in a Pandas DataFrame containing the data from the Kickstarter
     platform, a list of feature column names features, an integer feature
     index for differentiating different feature sets, a String label, the
@@ -72,16 +86,9 @@ def regressor(data, features, feature_index, label, max_goal, min_goal=250):
     score of the test set and the second element be a list of feature
     importances sorted in descending order in the form of
     (feature, importance).
-    """
-    filtered = data[(data['usd_goal_real'] < max_goal)
-                    & (data['usd_goal_real'] >= min_goal)]
-    columns = features.copy()
-    columns.append(label)
-    filtered_ml = filtered[columns]
-    X = filtered_ml.loc[:, filtered_ml.columns != label]
-    X = pd.get_dummies(X)
-    y = filtered_ml[label]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+    '''
+    X_train, X_test, y_train, y_test = \
+        get_splitted_data(data, features, label, max_goal, min_goal)
     # Find the best depth using 7-fold cross validation and graph the result
     depth = []
     for i in range(3, 20):
@@ -108,7 +115,7 @@ def regressor(data, features, feature_index, label, max_goal, min_goal=250):
 
 def graph_optimal_depth(filename, data, x, y, features, max_goal,
                         min_goal=250):
-    """
+    '''
     Takes in a String filename for the saved graph, a Pandas DataFrame
     containing the data with each max_depth and corresponding measure, name of
     the column for x axis, name of the column for y axis, a list of
@@ -119,10 +126,10 @@ def graph_optimal_depth(filename, data, x, y, features, max_goal,
     with very small goal amounts.
     Generates a line plot showing the test score with respect to the max
     depth for visualizing the optimal max_depth for the classifier.
-    """
+    '''
     data.plot(x=x, y=y, legend=False)
-    plt.suptitle("Max Goal: $" + str(max_goal) + "\n" +
-                 "Features: " + ", ".join(str(x) for x in features),
+    plt.suptitle('Max Goal: $' + str(max_goal) + '\n' +
+                 'Features: ' + ', '.join(str(x) for x in features),
                  fontsize=12)
     plt.xlabel(x)
     plt.ylabel(y)
@@ -131,18 +138,48 @@ def graph_optimal_depth(filename, data, x, y, features, max_goal,
 
 
 def print_result(measure, value, importances):
-    """
+    '''
     Takes in a String measure describing the type of the value used to evaluate
     a machine learning model, a float value representing the accuracy/error
     value depends on the machine learning model, and a list of tuples in the
     form of (feature, importance), prints the given information in a formatted
     manner.
-    """
-    print(measure + ": " + str(value))
-    print("Feature importance ranking: ")
+    '''
+    print(measure + ': ' + str(value))
+    print('Feature importance ranking: ')
     for f in importances:
         print(f)
     print()
+
+
+def classifier_trial(data, features, feature_index, label, max_goal):
+    '''
+    Runs a trial with DecisionTreeClassifier with the given data, features,
+    feature_index, label, and max_goal amount.
+    Generates a graph showing max depth vs. accuracy score and
+    prints the resulting accuracy score on the test set and also the
+    feature importance ranking.
+    '''
+    print('Result for classifying success/fail with feature set ' +
+          str(feature_index) + ',' + 'max goal $' + str(max_goal) + ': ')
+    accuracy, importances = \
+        classifier(data, features, feature_index, label, max_goal)
+    print_result('Accuracy Score', accuracy, importances)
+
+
+def regressor_trial(data, features, feature_index, label, max_goal):
+    '''
+    Runs a trial with DecisionTreeRegressor with the given data, features,
+    feature_index, label, and max_goal amount.
+    Generates a graph showing max depth vs. negative mean squared error and
+    prints the resulting mean squared error on the test set and also the
+    feature importance ranking.
+    '''
+    print('Result for classifying pledged ratio with feature set ' +
+          str(feature_index) + ',' + 'max goal $' + str(max_goal) + ': ')
+    error, importances = \
+        regressor(data, features, feature_index, label, max_goal)
+    print_result('Mean Squared Error', error, importances)
 
 
 def run():
@@ -161,47 +198,17 @@ def run():
 
     # Prints the accuracy and feature importance ranking using the best depth
     # for the DecisionTreeClassifier
-    print("Result for classifying success/fail with feature set 1, " +
-          "max goal $10000: ")
-    accuracy, importances = classifier(data, features1, 1, label, 10000)
-    print_result("Accuracy Score", accuracy, importances)
-
-    print("Result for classifying success/fail with feature set 2, " +
-          "max goal $10000: ")
-    accuracy, importances = classifier(data, features2, 2, label, 10000)
-    print_result("Accuracy Score", accuracy, importances)
-
-    print("Result for classifying success/fail with feature set 1, " +
-          "max goal $20000: ")
-    accuracy, importances = classifier(data, features1, 1, label, 20000)
-    print_result("Accuracy Score", accuracy, importances)
-
-    print("Result for classifying success/fail with feature set 2, " +
-          "max goal $20000: ")
-    accuracy, importances = classifier(data, features2, 2, label, 20000)
-    print_result("Accuracy Score", accuracy, importances)
+    classifier_trial(data, features1, 1, label, 10000)
+    classifier_trial(data, features2, 2, label, 10000)
+    classifier_trial(data, features1, 1, label, 20000)
+    classifier_trial(data, features2, 2, label, 20000)
 
     # Prints the accuracy and feature importance ranking using the best depth
     # for the DecisionTreeRegressor
-    print("Result for predicting pledged ratio with feature set 1, " +
-          "max goal $10000: ")
-    error, importances = regressor(data, features1, 1, label2, 10000)
-    print_result("Mean Squared Error", error, importances)
-
-    print("Result for predicting pledged ratio with feature set 2, " +
-          "max goal $10000: ")
-    error, importances = regressor(data, features2, 2, label2, 10000)
-    print_result("Mean Squared Error", error, importances)
-
-    print("Result for predicting pledged ratio with feature set 1, " +
-          "max goal $20000: ")
-    error, importances = regressor(data, features1, 1, label2, 20000)
-    print_result("Mean Squared Error", error, importances)
-
-    print("Result for predicting pledged ratio with feature set 2, " +
-          "max goal $20000: ")
-    error, importances = regressor(data, features2, 2, label2, 20000)
-    print_result("Mean Squared Error", error, importances)
+    regressor_trial(data, features1, 1, label2, 10000)
+    regressor_trial(data, features2, 2, label2, 10000)
+    regressor_trial(data, features1, 1, label2, 20000)
+    regressor_trial(data, features2, 2, label2, 20000)
 
 
 if __name__ == '__main__':
