@@ -12,7 +12,8 @@ def cut_and_arrange(data, percent):
     '''
     Arranges the given data in descending order by number of backers and
     returns a subset of the data based on the given percentile of the top
-    rows from the dataset
+    rows from the dataset.
+    Problem 2
     '''
     sorted = data.sort_values(by='backers', ascending=False)
     percentile = int(math.floor(percent * sorted.shape[0]))
@@ -22,7 +23,8 @@ def cut_and_arrange(data, percent):
 
 def get_unique(data, feature):
     '''
-    Calculates and returns all unique values in a given column as a list
+    Calculates and returns all unique values in a given column as a list.
+    Problem 2
     '''
     uniq_col_values = list(data[feature].unique())
     return uniq_col_values
@@ -31,7 +33,8 @@ def get_unique(data, feature):
 def sample_statistics(data, categories, feature):
     '''
     Calculates the percentages of each given feature and returns them
-    mapped to their feature in a dictionary
+    mapped to their feature in a dictionary.
+    Problem 2
     '''
     result = dict.fromkeys(categories, 0)
     for f in data[feature]:
@@ -41,12 +44,33 @@ def sample_statistics(data, categories, feature):
     return result
 
 
+def success_per_country(data, state):
+    '''
+    Returns a dataframe with the rates of the given project state per country
+    '''
+    successes = data['state'] == state
+    total_projects = data.groupby('country')['state'].count()
+    of_state = data[successes].groupby('country')['state'].count()
+    of_state = round((of_state / total_projects) * 100, 2)
+    print(of_state)
+
+
 def main():
     data = preprocess('ks-projects-201801.csv')
+
+    '''
+    # .10 in this case indicates the top 10% of the data
     subset = cut_and_arrange(data, .10)
     unique_categories = get_unique(subset, 'main_category')
     percentages = sample_statistics(subset, unique_categories, 'main_category')
+
+    # for output confirmation purposes only
+    print(unique_categories)
     print(percentages)
+    '''
+
+    success_per_country(data, 'successful')
+
     # TODO: visualize percentages (pie chart? bar chart?)
 
 
