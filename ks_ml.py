@@ -91,6 +91,7 @@ def graph_optimal_depth(filename, data, x, y, features, max_goal,
                  fontsize=12)
     plt.xlabel(x)
     plt.ylabel(y)
+    # TODO: Save images in the results folder
     plt.savefig(filename)
     plt.clf()
 
@@ -118,6 +119,7 @@ def classifier_trial(data, features, feature_index, label, max_goal):
     prints the resulting accuracy score on the test set and also the
     feature importance ranking.
     '''
+    # TODO: Print to text file in the results folder
     print('Result for classifying success/fail with feature set ' +
           str(feature_index) + ', max goal $' + str(max_goal) + ': ')
     accuracy, importances = \
