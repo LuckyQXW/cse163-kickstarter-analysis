@@ -67,8 +67,8 @@ def main():
     percentages = sample_statistics(tenth, unique_categories, 'main_category')
 
     # for output confirmation purposes only
-    #print(unique_categories)
-    #print(percentages)
+    print(unique_categories)
+    print(percentages)
 
     success_rates = success_per_country(data, 'successful').to_frame()
 
@@ -77,7 +77,7 @@ def main():
     plt.title('Kickstarter Project Success Rates Per Country')
     plt.xlabel('Countries')
     plt.ylabel('Percent Projects Successful')
-    plt.savefig('success_rates.jpg')
+    # plt.savefig('success_rates.jpg')
     plt.show()
 
     # write results to an output file
