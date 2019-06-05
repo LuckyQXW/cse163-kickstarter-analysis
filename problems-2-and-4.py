@@ -59,7 +59,6 @@ def success_per_country(data, state):
 def main():
     data = preprocess('ks-projects-201801.csv')
 
-    '''
     # .10 in this case indicates the top 10% of the data
     subset = cut_and_arrange(data, .10)
     unique_categories = get_unique(subset, 'main_category')
@@ -68,9 +67,9 @@ def main():
     # for output confirmation purposes only
     print(unique_categories)
     print(percentages)
-    '''
+    
     success_rates = success_per_country(data, 'successful').to_frame()
-
+    
     # TODO: visualize percentages (pie chart? bar chart?)
     success_rates.plot(kind='bar', legend=False)
     plt.title('Kickstarter Project Success Rates Per Country')
