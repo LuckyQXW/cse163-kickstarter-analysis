@@ -52,8 +52,8 @@ def classifier(data, features, feature_index, label, max_goal, min_goal=250):
     depth = []
     for i in range(3, 20):
         clf = DecisionTreeClassifier(max_depth=i)
-        scores = cross_val_score(estimator=clf, X=X_train, y=y_train, cv=7,
-                                 n_jobs=4)
+        scores = cross_val_score(estimator=clf, X=X_train, y=y_train, cv=4,
+                                 n_jobs=2)
         depth.append({'Max Depth': i, 'Score': scores.mean()})
     graph_data = pd.DataFrame(depth)
     graph_optimal_depth('max_depth_vs_accuracy_max_' + str(max_goal)
@@ -136,8 +136,10 @@ def run():
     features1 = ['usd_goal_real', 'backers', 'launched_month', 'main_category',
                  'duration']
     # Second feature combo without backers, and usd_goal_real
-    features2 = ['launched_month', 'main_category', 'duration']
-
+    features2 = ['usd_goal_real', 'launched_month', 'main_category',
+                 'duration']
+    # Third feature combo without backers, and usd_goal_real
+    features3 = ['backers', 'launched_month', 'main_category', 'duration']
     # Prints the accuracy and feature importance ranking using the best depth
     # for the DecisionTreeClassifier with varied max goal amount
     # Trials with feature set 1
@@ -150,6 +152,11 @@ def run():
     classifier_trial(data, features2, 2, label, 20000)
     classifier_trial(data, features2, 2, label, 30000)
     classifier_trial(data, features2, 2, label, 40000)
+    # Trials with feature set 3
+    classifier_trial(data, features3, 3, label, 10000)
+    classifier_trial(data, features3, 3, label, 20000)
+    classifier_trial(data, features3, 3, label, 30000)
+    classifier_trial(data, features3, 3, label, 40000)
 
 
 if __name__ == '__main__':
