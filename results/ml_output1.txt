@@ -1,0 +1,170 @@
+Result for classifying success/fail with feature set 1, max goal $10000: 
+Accuracy Score:0.9250782275158979
+Feature importance ranking: 
+backers 0.8484699547171606
+usd_goal_real 0.13101207633859802
+main_category_Games 0.008032110503658057
+main_category_Film & Video 0.004299885058262281
+main_category_Comics 0.0025983561847888895
+main_category_Design 0.0020575175626756583
+duration 0.0019821178633231923
+main_category_Theater 0.0005485136458967594
+main_category_Fashion 0.000202072428228095
+main_category_Music 0.0001054063713505463
+launched_month_4 0.00010046974583224505
+main_category_Dance 9.659331970675359e-05
+launched_month_6 9.3474582642033e-05
+launched_month_3 8.267012833007735e-05
+launched_month_11 6.0618494720788324e-05
+launched_month_5 5.894956516411291e-05
+launched_month_2 5.279945742352651e-05
+main_category_Art 4.7313799509393835e-05
+main_category_Technology 3.7525306270683406e-05
+launched_month_1 3.571082184052797e-05
+launched_month_9 2.5864104618008967e-05
+launched_month_10 0.0
+launched_month_12 0.0
+launched_month_7 0.0
+launched_month_8 0.0
+main_category_Crafts 0.0
+main_category_Food 0.0
+main_category_Journalism 0.0
+main_category_Photography 0.0
+main_category_Publishing 0.0
+
+Result for classifying success/fail with feature set 1, max goal $10000: 
+Accuracy Score:0.9250025234682547
+Feature importance ranking: 
+backers 0.8486959759346882
+usd_goal_real 0.13543163806353334
+main_category_Games 0.00749192905581581
+main_category_Film & Video 0.0040170788313493334
+main_category_Comics 0.0015643784498818026
+duration 0.0013291488449914913
+main_category_Design 0.0008962972145877978
+main_category_Theater 0.00036844300251020215
+launched_month_4 0.00010678305423475538
+launched_month_3 4.207318208164234e-05
+launched_month_5 3.221428889758183e-05
+main_category_Music 2.4040077428194756e-05
+launched_month_1 0.0
+launched_month_10 0.0
+launched_month_11 0.0
+launched_month_12 0.0
+launched_month_2 0.0
+launched_month_6 0.0
+launched_month_7 0.0
+launched_month_8 0.0
+launched_month_9 0.0
+main_category_Art 0.0
+main_category_Crafts 0.0
+main_category_Dance 0.0
+main_category_Fashion 0.0
+main_category_Food 0.0
+main_category_Journalism 0.0
+main_category_Photography 0.0
+main_category_Publishing 0.0
+main_category_Technology 0.0
+
+Result for classifying success/fail with feature set 1, max goal $20000: 
+Accuracy Score:0.9249545572578551
+Feature importance ranking: 
+backers 0.8295519910166577
+usd_goal_real 0.15141010925564358
+main_category_Games 0.008605785354721557
+main_category_Film & Video 0.0038215678278041183
+main_category_Comics 0.0021125625042921416
+main_category_Design 0.0018552105234318022
+duration 0.0013466970750837543
+main_category_Theater 0.00036079534230635385
+main_category_Music 0.0002470343159822392
+main_category_Fashion 0.00010053241725175607
+launched_month_12 8.922579702171553e-05
+launched_month_8 8.781089820909677e-05
+launched_month_2 7.534155626595459e-05
+main_category_Dance 7.517947496302593e-05
+launched_month_6 5.312522030062731e-05
+launched_month_4 4.5942851083159956e-05
+launched_month_5 3.5726736253952177e-05
+launched_month_9 3.280426592554059e-05
+launched_month_11 2.8334752120299052e-05
+main_category_Technology 2.8267307805324762e-05
+launched_month_3 2.2222707355036908e-05
+launched_month_1 1.3732799521038686e-05
+launched_month_10 0.0
+launched_month_7 0.0
+main_category_Art 0.0
+main_category_Crafts 0.0
+main_category_Food 0.0
+main_category_Journalism 0.0
+main_category_Photography 0.0
+main_category_Publishing 0.0
+
+Result for classifying success/fail with feature set 1, max goal $30000: 
+Accuracy Score:0.9253489304325644
+Feature importance ranking: 
+backers 0.7976619866502672
+usd_goal_real 0.17798651539048582
+main_category_Games 0.010170373856509013
+main_category_Film & Video 0.0036197979373593704
+main_category_Design 0.0027399755888836055
+main_category_Comics 0.0024031935472268433
+duration 0.002038585545590536
+main_category_Theater 0.0006098723051929923
+main_category_Music 0.0005244751689533314
+main_category_Dance 0.0004352785215436648
+main_category_Technology 0.0002399365061403104
+launched_month_8 0.00023846149641606432
+launched_month_11 0.00019814724950229065
+launched_month_4 0.0001738713228441094
+launched_month_3 0.00015583132587876594
+main_category_Fashion 0.00013613558958573284
+launched_month_5 0.000135800156040816
+main_category_Publishing 0.00012945128168525874
+launched_month_12 0.00010549046462603367
+launched_month_9 8.654114943616572e-05
+launched_month_6 8.075273980366007e-05
+launched_month_7 4.464121870896613e-05
+launched_month_10 4.179930770357405e-05
+launched_month_1 2.184587731200863e-05
+main_category_Crafts 1.6464455019714934e-05
+main_category_Art 4.77534728410116e-06
+launched_month_2 0.0
+main_category_Food 0.0
+main_category_Journalism 0.0
+main_category_Photography 0.0
+
+Result for classifying success/fail with feature set 1, max goal $40000: 
+Accuracy Score:0.929152554209295
+Feature importance ranking: 
+backers 0.7858564468904977
+usd_goal_real 0.1896742010115385
+main_category_Games 0.0102947378736006
+main_category_Film & Video 0.0039026443082752233
+main_category_Design 0.002874018634332967
+main_category_Comics 0.002550560134471064
+duration 0.002139301005087957
+main_category_Music 0.0003520457652751151
+main_category_Theater 0.00034826979655722893
+launched_month_4 0.00025263582535428635
+launched_month_2 0.00022505677458677093
+main_category_Dance 0.0002050496665506471
+launched_month_8 0.00018266812979992505
+launched_month_9 0.00017786063545169702
+main_category_Crafts 0.00016906581830940096
+launched_month_1 0.00014404716723692208
+launched_month_5 9.48312391138662e-05
+launched_month_3 9.18777435534687e-05
+launched_month_12 8.534453994151301e-05
+launched_month_6 8.307103389962713e-05
+main_category_Fashion 8.300395486963024e-05
+launched_month_10 6.290580593076907e-05
+launched_month_7 5.622024614458978e-05
+main_category_Technology 3.6759588227211824e-05
+main_category_Food 2.936654618493247e-05
+main_category_Journalism 1.74798708141724e-05
+main_category_Art 1.0529994394316374e-05
+launched_month_11 0.0
+main_category_Photography 0.0
+main_category_Publishing 0.0
+

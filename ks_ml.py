@@ -1,3 +1,7 @@
+'''
+This file contains functions that analyzes Kickstarter data with
+DecisionTreeClassifiers
+'''
 import cse163_utils  # noqa: F401
 import pandas as pd
 import seaborn as sns
@@ -56,10 +60,12 @@ def classifier(data, features, feature_index, label, max_goal, min_goal=250):
                                  n_jobs=4)
         depth.append({'Max Depth': i, 'Score': scores.mean()})
     graph_data = pd.DataFrame(depth)
+    '''
     graph_optimal_depth('max_depth_vs_accuracy_max_' + str(max_goal)
                         + '(' + str(feature_index) + ')' + '.jpg',
                         graph_data, 'Max Depth', 'Score',
                         features, max_goal)
+    '''
     # Make prediction on test set using the best depth
     best_depth = graph_data.nlargest(1, 'Score')['Max Depth'].iloc[0]
     print('Predicting test set using the depth of: ' + str(best_depth))

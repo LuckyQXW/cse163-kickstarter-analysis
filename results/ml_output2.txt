@@ -1,0 +1,132 @@
+Result for classifying success/fail with feature set 2, max goal $10000: 
+Accuracy Score:0.6253154335318462
+Feature importance ranking: 
+duration 0.34970358333263174
+usd_goal_real 0.17475375982147898
+main_category_Theater 0.08423677982815199
+main_category_Music 0.07333068292215913
+main_category_Comics 0.048630163901102016
+main_category_Dance 0.0349284964284577
+main_category_Fashion 0.034689231979056635
+main_category_Film & Video 0.03331943540645246
+main_category_Games 0.018777972392512308
+main_category_Technology 0.014882602175218357
+main_category_Art 0.014395736305718004
+main_category_Crafts 0.01381070911030505
+main_category_Publishing 0.013412571145137058
+main_category_Food 0.011889738611276438
+main_category_Photography 0.010915080226533837
+main_category_Journalism 0.008820411817048701
+main_category_Design 0.008093141815342802
+launched_month_11 0.006059738062523786
+launched_month_7 0.005966904403872683
+launched_month_2 0.005355011995359438
+launched_month_10 0.005256374366267865
+launched_month_1 0.004590881978167507
+launched_month_8 0.004371642887865209
+launched_month_3 0.004346199041469321
+launched_month_5 0.004207081579507567
+launched_month_9 0.0033601063567418456
+launched_month_6 0.0032548613214072306
+launched_month_12 0.0024011580752533873
+launched_month_4 0.0022399427129809186
+
+Result for classifying success/fail with feature set 2, max goal $20000: 
+Accuracy Score:0.624533088308731
+Feature importance ranking: 
+duration 0.3170980855526799
+usd_goal_real 0.25824125767420625
+main_category_Music 0.06727187256172884
+main_category_Theater 0.0536524111267517
+main_category_Fashion 0.044901617412479757
+main_category_Comics 0.043127528548838126
+main_category_Dance 0.02778466120543714
+main_category_Technology 0.026817272847073352
+main_category_Film & Video 0.024942772497980593
+main_category_Crafts 0.017792855339292816
+main_category_Games 0.012968397516235228
+main_category_Design 0.011276464051212905
+launched_month_7 0.007806413983398822
+launched_month_12 0.007452117139365802
+launched_month_2 0.007203307403853705
+main_category_Publishing 0.0068873316810884174
+launched_month_6 0.006634188705724514
+launched_month_11 0.00641277258550449
+launched_month_8 0.0062391274169045574
+launched_month_4 0.006089341823698351
+main_category_Food 0.005884061025668029
+launched_month_9 0.005253876811678005
+main_category_Photography 0.005218156251659884
+launched_month_10 0.005051567714097347
+launched_month_5 0.005016700277172424
+launched_month_3 0.004637198192479216
+launched_month_1 0.004263382269674654
+main_category_Journalism 0.003350409429073236
+main_category_Art 0.0007248509550421415
+
+Result for classifying success/fail with feature set 2, max goal $30000: 
+Accuracy Score:0.6312452170110419
+Feature importance ranking: 
+duration 0.3205604349123553
+usd_goal_real 0.27871251424981547
+main_category_Music 0.08774544203917464
+main_category_Theater 0.05978467735208641
+main_category_Comics 0.05019290750126232
+main_category_Technology 0.03132883024785672
+main_category_Fashion 0.029192119048884132
+main_category_Dance 0.026785031183068287
+main_category_Film & Video 0.023214622299105644
+main_category_Crafts 0.01613161402739847
+main_category_Games 0.014742700399176786
+main_category_Design 0.011736447448392483
+main_category_Art 0.006419065024608993
+launched_month_7 0.005411245706419886
+launched_month_12 0.00465428350010955
+launched_month_8 0.004251952030915179
+launched_month_6 0.004097147819893983
+launched_month_1 0.0035085613410309135
+launched_month_3 0.0033268377136269145
+launched_month_5 0.003278981822354022
+launched_month_9 0.0032746055928424907
+launched_month_4 0.0031951776406601152
+launched_month_2 0.0027649538096678338
+launched_month_11 0.0027642966781573092
+launched_month_10 0.002022115046963361
+main_category_Publishing 0.0007832243567869164
+main_category_Food 6.931025189420296e-05
+main_category_Journalism 5.090095549153383e-05
+main_category_Photography 0.0
+
+Result for classifying success/fail with feature set 2, max goal $40000: 
+Accuracy Score:0.6398093508851566
+Feature importance ranking: 
+duration 0.3154548784272567
+usd_goal_real 0.29178683592025423
+main_category_Music 0.07368405847685783
+main_category_Theater 0.055978789187421746
+main_category_Fashion 0.040988858037601786
+main_category_Comics 0.03752606602576757
+main_category_Dance 0.027624043728491032
+main_category_Technology 0.02570128141935073
+main_category_Film & Video 0.0201119606233713
+main_category_Crafts 0.018867538990409473
+main_category_Design 0.013181717641261775
+main_category_Games 0.012206634545037752
+main_category_Publishing 0.005721095034596253
+launched_month_12 0.005578543929574198
+main_category_Photography 0.005509102275820506
+launched_month_7 0.005480548104267707
+launched_month_8 0.004688467526771025
+main_category_Food 0.004527168914179882
+launched_month_6 0.003980789802798048
+launched_month_5 0.0038244677932409736
+launched_month_2 0.0037504375682107668
+launched_month_11 0.0036730934837326786
+launched_month_10 0.003529704298296803
+launched_month_3 0.003398423365816892
+launched_month_1 0.003338926310035718
+launched_month_4 0.0032948535783413795
+launched_month_9 0.003274186735525442
+main_category_Journalism 0.003176213054480833
+main_category_Art 0.00014131520122892234
+

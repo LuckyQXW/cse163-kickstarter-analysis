@@ -1,0 +1,132 @@
+Result for classifying success/fail with feature set 3, max goal $10000: 
+Accuracy Score:0.8892702129807207
+Feature importance ranking: 
+backers 0.9521293797748664
+duration 0.01815947448641858
+main_category_Games 0.008709648452872058
+main_category_Design 0.004640690922062085
+main_category_Film & Video 0.002238212615050281
+main_category_Food 0.002088015676822417
+main_category_Technology 0.0019024369446363947
+main_category_Theater 0.0016611623560522449
+main_category_Publishing 0.0015031113029869933
+main_category_Comics 0.001011507255586693
+main_category_Music 0.0008845281884793055
+main_category_Art 0.0007806347044891251
+main_category_Fashion 0.0007804769879199655
+launched_month_6 0.0004477101996778374
+launched_month_2 0.00043734617481420974
+launched_month_3 0.00040032891909737246
+launched_month_4 0.000298455244760753
+launched_month_5 0.0002805139049256966
+launched_month_11 0.0002601177209371313
+main_category_Dance 0.00025135385732735077
+launched_month_12 0.00024518482131918087
+launched_month_10 0.0002390007608817968
+launched_month_8 0.0002272255378686323
+launched_month_9 0.0001455238687375578
+launched_month_7 0.0001417242291185783
+launched_month_1 0.00012025106080095165
+main_category_Photography 1.1637345165884997e-05
+main_category_Crafts 4.346686324566862e-06
+main_category_Journalism 0.0
+
+Result for classifying success/fail with feature set 3, max goal $20000: 
+Accuracy Score:0.8822483670575075
+Feature importance ranking: 
+backers 0.9440552979246408
+duration 0.021039810020097152
+main_category_Games 0.011218262401571366
+main_category_Design 0.008717846761108925
+main_category_Technology 0.00424907195206075
+main_category_Food 0.0037733592442703886
+main_category_Film & Video 0.001923359278486554
+main_category_Theater 0.001412249246344058
+main_category_Music 0.0011495036937970947
+main_category_Art 0.000739295815091846
+launched_month_5 0.0002240465709170919
+launched_month_12 0.0001944254883870892
+main_category_Publishing 0.00019129275303188297
+main_category_Fashion 0.00019035079694847896
+launched_month_2 0.00017709261573103016
+launched_month_3 0.00015449656370101401
+launched_month_7 0.00013324475247802195
+launched_month_4 0.00010641989858680941
+launched_month_8 9.666189937495608e-05
+launched_month_6 8.915556686578231e-05
+launched_month_11 6.608025777688215e-05
+launched_month_10 5.3196678133464445e-05
+launched_month_1 2.811946517874425e-05
+main_category_Crafts 1.7360355419980427e-05
+launched_month_9 0.0
+main_category_Comics 0.0
+main_category_Dance 0.0
+main_category_Journalism 0.0
+main_category_Photography 0.0
+
+Result for classifying success/fail with feature set 3, max goal $30000: 
+Accuracy Score:0.8742574979045953
+Feature importance ranking: 
+backers 0.9359976065830038
+duration 0.023797623792022646
+main_category_Games 0.011506817531896498
+main_category_Design 0.01028075316157625
+main_category_Technology 0.006725505664478722
+main_category_Food 0.0051228768613070744
+main_category_Theater 0.002224713486235978
+main_category_Film & Video 0.001278683273301905
+main_category_Music 0.0009213298364054346
+main_category_Art 0.0006767663114852385
+launched_month_3 0.00026281580217050473
+launched_month_12 0.00023081388034062295
+launched_month_2 0.00018534358136686684
+launched_month_4 0.00015511684579183157
+launched_month_7 0.00010400396675598766
+launched_month_11 9.979235225085107e-05
+launched_month_10 9.482364019475192e-05
+launched_month_1 6.531363916831702e-05
+launched_month_8 6.166858186484163e-05
+launched_month_5 5.674394059307566e-05
+launched_month_6 4.966580790190294e-05
+launched_month_9 4.640180780336081e-05
+main_category_Fashion 4.3128637299623675e-05
+main_category_Dance 1.1691014783913663e-05
+main_category_Comics 0.0
+main_category_Crafts 0.0
+main_category_Journalism 0.0
+main_category_Photography 0.0
+main_category_Publishing 0.0
+
+Result for classifying success/fail with feature set 3, max goal $40000: 
+Accuracy Score:0.8737735256119278
+Feature importance ranking: 
+backers 0.9238466185976913
+duration 0.026253839567239562
+main_category_Games 0.011505806073143821
+main_category_Design 0.010274278548780033
+main_category_Technology 0.007948669790895323
+main_category_Food 0.006356516946845467
+main_category_Music 0.00508132051819187
+main_category_Theater 0.001976248816031556
+main_category_Fashion 0.0016517672551722058
+main_category_Film & Video 0.001240236195128428
+main_category_Art 0.0009951206258506456
+launched_month_2 0.00042786582110934017
+launched_month_12 0.0003965872762869635
+launched_month_5 0.0003187044005346041
+launched_month_10 0.0002706931767069734
+launched_month_7 0.00023861754281224415
+launched_month_4 0.00022846683733335852
+launched_month_3 0.0002199273599190935
+launched_month_6 0.00021718056713319282
+launched_month_8 0.00013705956154716015
+launched_month_11 0.00012007279370179893
+launched_month_9 0.00011153394257627669
+launched_month_1 7.449675863329963e-05
+main_category_Publishing 5.8284764687410926e-05
+main_category_Dance 2.402723641815177e-05
+main_category_Crafts 2.1233937434495204e-05
+main_category_Photography 2.446844892264527e-06
+main_category_Journalism 2.3782433030541805e-06
+main_category_Comics 0.0
+
