@@ -48,12 +48,12 @@ def classifier(data, features, feature_index, label, max_goal, min_goal=250):
     '''
     X_train, X_test, y_train, y_test = \
         get_splitted_data(data, features, label, max_goal, min_goal)
-    # Find the best depth using 7-fold cross validation and graph the result
+    # Find the best depth using 5-fold cross validation and graph the result
     depth = []
     for i in range(3, 20):
         clf = DecisionTreeClassifier(max_depth=i)
-        scores = cross_val_score(estimator=clf, X=X_train, y=y_train, cv=4,
-                                 n_jobs=2)
+        scores = cross_val_score(estimator=clf, X=X_train, y=y_train, cv=5,
+                                 n_jobs=4)
         depth.append({'Max Depth': i, 'Score': scores.mean()})
     graph_data = pd.DataFrame(depth)
     graph_optimal_depth('max_depth_vs_accuracy_max_' + str(max_goal)
@@ -91,24 +91,8 @@ def graph_optimal_depth(filename, data, x, y, features, max_goal,
                  fontsize=12)
     plt.xlabel(x)
     plt.ylabel(y)
-    # TODO: Save images in the results folder
-    plt.savefig(filename)
+    plt.savefig('results/' + filename)
     plt.clf()
-
-
-def print_result(measure, value, importances):
-    '''
-    Takes in a String measure describing the type of the value used to evaluate
-    a machine learning model, a float value representing the accuracy/error
-    value depends on the machine learning model, and a list of tuples in the
-    form of (feature, importance), prints the given information in a formatted
-    manner.
-    '''
-    print(measure + ': ' + str(value))
-    print('Feature importance ranking: ')
-    for f in importances:
-        print(f)
-    print()
 
 
 def classifier_trial(data, features, feature_index, label, max_goal):
@@ -119,12 +103,18 @@ def classifier_trial(data, features, feature_index, label, max_goal):
     prints the resulting accuracy score on the test set and also the
     feature importance ranking.
     '''
-    # TODO: Print to text file in the results folder
-    print('Result for classifying success/fail with feature set ' +
-          str(feature_index) + ', max goal $' + str(max_goal) + ': ')
+    f = open('results/ml_output' + str(feature_index) + '.txt', mode='a',
+             encoding='utf-8')
+    f.write('Result for classifying success/fail with feature set ' +
+            str(feature_index) + ', max goal $' + str(max_goal) + ': \n')
     accuracy, importances = \
         classifier(data, features, feature_index, label, max_goal)
-    print_result('Accuracy Score', accuracy, importances)
+    f.write('Accuracy Score:' + str(accuracy) + '\n')
+    f.write('Feature importance ranking: \n')
+    for feature in importances:
+        f.write(feature[0] + ' ' + str(feature[1]) + '\n')
+    f.write('\n')
+    f.close()
 
 
 def run():
@@ -137,11 +127,12 @@ def run():
     # First feature combo with backers
     features1 = ['usd_goal_real', 'backers', 'launched_month', 'main_category',
                  'duration']
-    # Second feature combo without backers, and usd_goal_real
+    # Second feature combo without backers
     features2 = ['usd_goal_real', 'launched_month', 'main_category',
                  'duration']
-    # Third feature combo without backers, and usd_goal_real
+    # Third feature combo without usd_goal_real
     features3 = ['backers', 'launched_month', 'main_category', 'duration']
+
     # Prints the accuracy and feature importance ranking using the best depth
     # for the DecisionTreeClassifier with varied max goal amount
     # Trials with feature set 1
