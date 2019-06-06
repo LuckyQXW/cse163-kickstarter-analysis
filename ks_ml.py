@@ -136,8 +136,6 @@ def run():
     # Second feature combo without backers
     features2 = ['usd_goal_real', 'launched_month', 'main_category',
                  'duration']
-    # Third feature combo without usd_goal_real
-    features3 = ['backers', 'launched_month', 'main_category', 'duration']
 
     # Prints the accuracy and feature importance ranking using the best depth
     # for the DecisionTreeClassifier with varied max goal amount
@@ -151,11 +149,6 @@ def run():
     classifier_trial(data, features2, 2, label, 20000)
     classifier_trial(data, features2, 2, label, 30000)
     classifier_trial(data, features2, 2, label, 40000)
-    # Trials with feature set 3
-    classifier_trial(data, features3, 3, label, 10000)
-    classifier_trial(data, features3, 3, label, 20000)
-    classifier_trial(data, features3, 3, label, 30000)
-    classifier_trial(data, features3, 3, label, 40000)
 
 
 if __name__ == '__main__':
