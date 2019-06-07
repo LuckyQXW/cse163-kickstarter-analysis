@@ -94,9 +94,8 @@ def main():
 
     success_rates = success_per_country(data, 'successful').to_frame()
     success_rates = success_rates.sort_values('state', ascending=False)
-
-    success_rates.plot(kind='bar', legend=False, figsize=(12, 9))
     plt.rcParams['font.size'] = 25
+    success_rates.plot(kind='bar', legend=False, figsize=(15, 15))
     plt.title('Kickstarter Project Success Rates Per Country')
     plt.xlabel('Countries')
     plt.ylabel('Percent Projects Successful')
