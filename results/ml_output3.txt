@@ -1,27 +1,28 @@
 Result for classifying success/fail with feature set 3, goal $3000~$5000: 
-Accuracy Score:0.9227172360046759
+Accuracy Score:0.9242758799844135
 Feature importance ranking: 
-backers 0.9775097960590985
-main_category_Games 0.006551075770973067
-main_category_Comics 0.005476538790216342
-main_category_Film and Video 0.004620838562907102
-usd_goal_real 0.0037899591979272903
-main_category_Theater 0.0013649169143869764
-launched_month_6 0.0003506018932347853
-main_category_Design 0.0002855503129851149
-main_category_Music 5.0722498270855646e-05
-duration 0.0
-launched_month_1 0.0
+backers 0.972534108381468
+main_category_Games 0.007695849181837981
+main_category_Film and Video 0.005841047771729142
+usd_goal_real 0.005696421374634257
+main_category_Comics 0.0037034842360761863
+main_category_Theater 0.0010153826075771665
+main_category_Technology 0.0009175555246337818
+duration 0.000907630981908167
+launched_month_3 0.0005231844987989881
+launched_month_9 0.0003100732439914445
+launched_month_5 0.00024838453926017697
+main_category_Design 0.00022838409409863499
+launched_month_11 0.00014882325849493753
+launched_month_4 9.955347222594239e-05
+launched_month_1 8.182537160717264e-05
+main_category_Music 4.8291461658000953e-05
 launched_month_10 0.0
-launched_month_11 0.0
 launched_month_12 0.0
 launched_month_2 0.0
-launched_month_3 0.0
-launched_month_4 0.0
-launched_month_5 0.0
+launched_month_6 0.0
 launched_month_7 0.0
 launched_month_8 0.0
-launched_month_9 0.0
 main_category_Art 0.0
 main_category_Crafts 0.0
 main_category_Dance 0.0
@@ -30,5 +31,4 @@ main_category_Food 0.0
 main_category_Journalism 0.0
 main_category_Photography 0.0
 main_category_Publishing 0.0
-main_category_Technology 0.0
 

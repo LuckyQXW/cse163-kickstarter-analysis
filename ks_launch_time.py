@@ -90,8 +90,10 @@ def plot_month_success_rate(data, test=False):
     plt.clf()
 
 
-def run():
-    data = main.preprocess_data('ks-projects-201801.csv')
+def run(data):
+    '''
+    Takes in preprocessed Kickstarter data and performs launch time analysis.
+    '''
     plot_success_fail_vs_total(data)
     plot_success_rate(data)
     plot_month_counts(data)

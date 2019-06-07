@@ -161,7 +161,11 @@ def resolve_and_percent(category):
     return category
 
 
-def run():
+def run(data):
+    '''
+    Takes in preprocessed Kickstarter data and perform machine learning
+    analysis.
+    '''
     data = main.preprocess_data('ks-projects-201801.csv')
     successful = data['state'] == 'successful'
     failed = data['state'] == 'failed'
