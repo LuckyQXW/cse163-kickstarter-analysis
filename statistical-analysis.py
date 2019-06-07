@@ -58,6 +58,11 @@ def success_per_country(data, state):
 
 
 def graph_perc(data, percentile, pathname):
+    '''
+    Takes the given data and graphs a pie chart with labels based on
+    the given percentile, and saves it to a results folder with a name
+    including the given path
+    '''
     colors = ['#C0392B', '#E74C3C', '#9B59B6', '#8E44AD', '#2980B9',
               '#3498DB', '#1ABC9C', '#16A085', '#27AE60', '#2ECC71',
               '#F1C40F', '#F39C12', '#E67E22', '#D35400', '#CD6155']
@@ -73,6 +78,21 @@ def graph_perc(data, percentile, pathname):
     plt.savefig(path)
 
 
+def graph_success(data):
+    '''
+    Arranges data into descending order and graphs a bar chart depicting
+    the success rates of Kickstarter projects per country, saving it to
+    a results folder.
+    '''
+    data = data.sort_values('state', ascending=False)
+    plt.rcParams['font.size'] = 25
+    data.plot(kind='bar', legend=False, figsize=(15, 15))
+    plt.title('Kickstarter Project Success Rates Per Country')
+    plt.xlabel('Countries')
+    plt.ylabel('Percent Projects Successful')
+    plt.savefig('results/success_rates_per_country.jpg')
+
+
 def main():
     data = preprocess('ks-projects-201801.csv')
 
@@ -84,22 +104,19 @@ def main():
     # get unique categories
     categories = get_unique(data, 'main_category')
 
+    # calculate statistics on each percentile
     first = sample_statistics(first, categories, 'main_category')
     fifth = sample_statistics(fifth, categories, 'main_category')
     tenth = sample_statistics(tenth, categories, 'main_category')
 
+    # graph each percentile
     graph_perc(first, '1st', 'first')
     graph_perc(fifth, '5th', 'fifth')
     graph_perc(tenth, '10th', 'tenth')
 
+    # calculate and graph success rates per country
     success_rates = success_per_country(data, 'successful').to_frame()
-    success_rates = success_rates.sort_values('state', ascending=False)
-    plt.rcParams['font.size'] = 25
-    success_rates.plot(kind='bar', legend=False, figsize=(15, 15))
-    plt.title('Kickstarter Project Success Rates Per Country')
-    plt.xlabel('Countries')
-    plt.ylabel('Percent Projects Successful')
-    plt.savefig('results/success_rates_per_country.jpg')
+    graph_success(success_rates)
 
     # write results to an output file
     # create and save visualizations for summary statistics (nested pie)
