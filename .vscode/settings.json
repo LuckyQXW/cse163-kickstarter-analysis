@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/anaconda3/envs/cse163/bin/python",
+    "python.pythonPath": "/Users/wenqiu/anaconda3/envs/cse163/bin/python",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true
