@@ -7,7 +7,17 @@ import matplotlib.pyplot as plt
 import main
 
 
-def plot_success_fail_vs_total(data):
+def get_path(test):
+    '''
+    Takes in a boolean test and determines the file path for saving figures.
+    Returns 'results/' if false, and 'test/' if true.
+    '''
+    if test:
+        return 'test/'
+    return 'results/'
+
+
+def plot_success_fail_vs_total(data, test=False):
     '''
     Takes in a Pandas DataFrame containing the Kickstarter data and plot the
     number of total, successful, and failed projects over time.
@@ -25,11 +35,11 @@ def plot_success_fail_vs_total(data):
               + ' from 2010 to 2017')
     plt.xlabel('Launched Time (Year)')
     plt.ylabel('Count')
-    plt.savefig('results/project_count_over_time.jpg')
+    plt.savefig(get_path(test) + 'project_count_over_time.jpg')
     plt.clf()
 
 
-def plot_success_rate(data):
+def plot_success_rate(data, test=False):
     '''
     Takes in a Pandas DataFrame containing the Kickstarter data and plot the
     percentage of successful projects over time.
@@ -42,11 +52,11 @@ def plot_success_rate(data):
     plt.title('Project Success Rate from 2010 to 2017')
     plt.xlabel('Launched Time (Year)')
     plt.ylabel('% of Successful Projects')
-    plt.savefig('results/success_rate_over_time.jpg')
+    plt.savefig(get_path(test) + 'success_rate_over_time.jpg')
     plt.clf()
 
 
-def plot_month_counts(data):
+def plot_month_counts(data, test=False):
     '''
     Takes in a Pandas DataFrame containing the Kickstarter data and plot the
     total number of project launched with respect to each month.
@@ -57,11 +67,11 @@ def plot_month_counts(data):
     plt.title('Total Number of Projects Launched Each Month')
     plt.xlabel('Launched Month')
     plt.ylabel('Count')
-    plt.savefig('results/launched_count_over_month.jpg')
+    plt.savefig(get_path(test) + 'launched_count_over_month.jpg')
     plt.clf()
 
 
-def plot_month_success_rate(data):
+def plot_month_success_rate(data, test=False):
     '''
     Takes in a Pandas DataFrame containing the Kickstarter data and plot the
     percentage of successful project launched with respect to each month.
@@ -76,7 +86,7 @@ def plot_month_success_rate(data):
     plt.title('Percentage of Successful Projects Launched Each Month')
     plt.xlabel('Launched Month')
     plt.ylabel('Percentage of Successful Projects (%)')
-    plt.savefig('results/success_rate_over_month.jpg')
+    plt.savefig(get_path(test) + 'success_rate_over_month.jpg')
     plt.clf()
 
 
