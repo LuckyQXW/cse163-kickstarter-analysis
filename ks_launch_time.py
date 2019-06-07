@@ -4,7 +4,6 @@ projects.
 '''
 import cse163_utils  # noqa: F401
 import matplotlib.pyplot as plt
-import main
 
 
 def get_path(test):

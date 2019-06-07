@@ -11,7 +11,6 @@ from sklearn.model_selection import cross_val_score
 from sklearn.metrics import accuracy_score
 from sklearn.tree import export_graphviz
 import graphviz
-import main
 
 
 def classifier(data, features, output_index, label, max_goal, min_goal=250,
@@ -166,7 +165,6 @@ def run(data):
     Takes in preprocessed Kickstarter data and perform machine learning
     analysis.
     '''
-    data = main.preprocess_data('ks-projects-201801.csv')
     successful = data['state'] == 'successful'
     failed = data['state'] == 'failed'
     data.loc[:, 'main_category'] = \
