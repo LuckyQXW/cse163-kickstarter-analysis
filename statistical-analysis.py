@@ -1,8 +1,8 @@
 # Problems 2 and 4
 # Paul Pham pkdpham
 #
-# This program defines functions that will work with the Kickstarter dataset to
-# do various forms of statistical analysis
+# This program defines functions that will work with the Kickstarter
+# dataset to do various forms of statistical analysis
 
 
 from main import preprocess_data as preprocess
@@ -71,7 +71,7 @@ def graph_perc(data, percentile, pathname):
     explode = (0, 0, 0, 0, 0, 0, 0.1, 0, 0, 0, 0, 0, 0, 0, 0)
     fig, ax = plt.subplots(figsize=(10, 10))
     plt.rcParams['font.size'] = 15
-    ax.pie(data.values(), labels=labels, colors=colors, startangle=10,
+    ax.pie(data.values(), labels=labels, colors=colors, startangle=210,
            explode=explode)
     plt.title(title)
     path = 'results/' + pathname + '_perc_categories.jpg'
