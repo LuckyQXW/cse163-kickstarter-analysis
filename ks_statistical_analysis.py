@@ -3,6 +3,7 @@ This program defines functions that will work with the Kickstarter
 dataset to do various forms of statistical analysis
 '''
 import matplotlib.pyplot as plt
+import cse163_utils  # noqa: F401
 
 
 def cut_and_arrange(data, percent):
@@ -68,6 +69,7 @@ def graph_perc(data, percentile, pathname, test=False):
     plt.title(title)
     if test:
         plt.savefig('test/test_percentages_graph.jpg')
+        plt.clf()
     else:
         path = 'results/' + pathname + '_perc_categories.jpg'
         plt.savefig(path)
@@ -81,11 +83,12 @@ def graph_success(data):
     '''
     data = data.sort_values('state', ascending=False)
     plt.rcParams['font.size'] = 25
-    data.plot(kind='bar', legend=False, figsize=(15, 15))
+    data.plot.bar(legend=False, figsize=(15, 15))
     plt.title('Kickstarter Project Success Rates Per Country')
     plt.xlabel('Countries')
     plt.ylabel('Percent Projects Successful')
     plt.savefig('results/success_rates_per_country.jpg')
+    plt.clf()
 
 
 def run(data):
@@ -108,4 +111,5 @@ def run(data):
     graph_perc(tenth, '10th', 'tenth')
 
     # graph success rate per country
-    # graph_success(data)
+    success_rates = success_per_country(data, 'successful').to_frame()
+    graph_success(success_rates)

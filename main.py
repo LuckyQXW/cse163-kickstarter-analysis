@@ -54,8 +54,8 @@ def main():
     dataset
     '''
     data = preprocess_data('ks-projects-201801.csv')
-    # ks_ml.run(data)
-    # ks_launch_time.run(data)
+    ks_ml.run(data)
+    ks_launch_time.run(data)
     ks_statistical_analysis.run(data)
 
 
