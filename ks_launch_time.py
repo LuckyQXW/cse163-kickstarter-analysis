@@ -97,7 +97,3 @@ def run(data):
     plot_success_rate(data)
     plot_month_counts(data)
     plot_month_success_rate(data)
-
-
-if __name__ == '__main__':
-    run()

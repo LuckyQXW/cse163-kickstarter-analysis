@@ -1,11 +1,7 @@
-# Problems 2 and 4
-# Paul Pham pkdpham
-#
-# This program defines functions that will work with the Kickstarter
-# dataset to do various forms of statistical analysis
-
-
-from main import preprocess_data as preprocess
+'''
+This program defines functions that will work with the Kickstarter
+dataset to do various forms of statistical analysis
+'''
 import matplotlib.pyplot as plt
 
 
@@ -111,6 +107,5 @@ def run(data):
     graph_perc(fifth, '5th', 'fifth')
     graph_perc(tenth, '10th', 'tenth')
 
-
-if __name__ == '__main__':
-    main()
+    # graph success rate per country
+    # graph_success(data)

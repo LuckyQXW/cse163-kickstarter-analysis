@@ -40,7 +40,7 @@ def classifier(data, features, output_index, label, max_goal, min_goal=250,
     for i in range(3, 20):
         clf = DecisionTreeClassifier(max_depth=i)
         scores = cross_val_score(estimator=clf, X=X_train, y=y_train, cv=5,
-                                 n_jobs=4)
+                                 n_jobs=2)
         depth.append({'Max Depth': i, 'Score': scores.mean()})
     graph_data = pd.DataFrame(depth)
     # Save max depth vs accuracy graph to test folder if test=True
@@ -194,7 +194,3 @@ def run(data):
     # Trials with smaller goal range
     classifier_trial(data, features1, 3, label,
                      max_goal=5000, min_goal=3000, graph=True)
-
-
-if __name__ == '__main__':
-    run()
