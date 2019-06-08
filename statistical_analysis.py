@@ -92,12 +92,9 @@ def graph_success(data):
     plt.savefig('results/success_rates_per_country.jpg')
 
 
-def main():
-    '''
-    data = preprocess('ks-projects-201801.csv')
-
+def run(data):
     # cut and store the data based on percentiles
-    first = cut_and_arrange(data, .01)
+    first = cut_and_arrange(data, 0.01)
     fifth = cut_and_arrange(data, 0.05)
     tenth = cut_and_arrange(data, 0.10)
 
@@ -113,13 +110,6 @@ def main():
     graph_perc(first, '1st', 'first')
     graph_perc(fifth, '5th', 'fifth')
     graph_perc(tenth, '10th', 'tenth')
-
-    # calculate and graph success rates per country
-    success_rates = success_per_country(data, 'successful').to_frame()
-    graph_success(success_rates)
-    '''
-    data = preprocess('test2-dataset.csv')
-    print(type(success_per_country(data, 'successful')))
 
 
 if __name__ == '__main__':

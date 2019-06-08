@@ -5,6 +5,7 @@ import cse163_utils  # noqa: F401
 import pandas as pd
 import ks_ml
 import ks_launch_time
+import statistical_analysis
 
 
 def preprocess_data(filename):
@@ -55,6 +56,7 @@ def main():
     data = preprocess_data('ks-projects-201801.csv')
     ks_ml.run(data)
     ks_launch_time.run(data)
+    statistical_analysis.run(data)
 
 
 if __name__ == '__main__':
