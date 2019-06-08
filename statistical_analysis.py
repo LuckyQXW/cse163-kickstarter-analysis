@@ -14,7 +14,6 @@ def cut_and_arrange(data, percent):
     Arranges the given data in descending order by number of backers and
     returns a subset of the data based on the given percentile of the top
     rows from the dataset.
-    Problem 2
     '''
     sorted = data.sort_values(by='backers', ascending=False)
     percentile = round(percent * sorted.shape[0])
@@ -25,17 +24,15 @@ def cut_and_arrange(data, percent):
 def get_unique(data, feature):
     '''
     Calculates and returns all unique values in a given column as a list.
-    Problem 2
     '''
     uniq_col_values = list(data[feature].unique())
     return uniq_col_values
 
 
-def sample_statistics(data, categories, feature):
+def get_percentages(data, categories, feature):
     '''
     Calculates the percentages of each given feature and returns them
     mapped to their feature in a dictionary.
-    Problem 2
     '''
     result = dict.fromkeys(categories, 0)
     for f in data[feature]:
@@ -48,7 +45,6 @@ def sample_statistics(data, categories, feature):
 def success_per_country(data, state):
     '''
     Returns a dataframe with the rates of the given project state per country
-    Problem 4
     '''
     successes = data['state'] == state
     total_projects = data.groupby('country')['state'].count()
@@ -57,7 +53,7 @@ def success_per_country(data, state):
     return of_state
 
 
-def graph_perc(data, percentile, pathname):
+def graph_perc(data, percentile, pathname, test=False):
     '''
     Takes the given data and graphs a pie chart with labels based on
     the given percentile, and saves it to a results folder with a name
@@ -74,8 +70,11 @@ def graph_perc(data, percentile, pathname):
     ax.pie(data.values(), labels=labels, colors=colors, startangle=210,
            explode=explode)
     plt.title(title)
-    path = 'results/' + pathname + '_perc_categories.jpg'
-    plt.savefig(path)
+    if test:
+        plt.savefig('test/test_percentages_graph.jpg')
+    else:
+        path = 'results/' + pathname + '_perc_categories.jpg'
+        plt.savefig(path)
 
 
 def graph_success(data):
@@ -94,6 +93,7 @@ def graph_success(data):
 
 
 def main():
+    '''
     data = preprocess('ks-projects-201801.csv')
 
     # cut and store the data based on percentiles
@@ -105,9 +105,9 @@ def main():
     categories = get_unique(data, 'main_category')
 
     # calculate statistics on each percentile
-    first = sample_statistics(first, categories, 'main_category')
-    fifth = sample_statistics(fifth, categories, 'main_category')
-    tenth = sample_statistics(tenth, categories, 'main_category')
+    first = get_percentages(first, categories, 'main_category')
+    fifth = get_percentages(fifth, categories, 'main_category')
+    tenth = get_percentages(tenth, categories, 'main_category')
 
     # graph each percentile
     graph_perc(first, '1st', 'first')
@@ -117,9 +117,9 @@ def main():
     # calculate and graph success rates per country
     success_rates = success_per_country(data, 'successful').to_frame()
     graph_success(success_rates)
-
-    # write results to an output file
-    # create and save visualizations for summary statistics (nested pie)
+    '''
+    data = preprocess('test2-dataset.csv')
+    print(type(success_per_country(data, 'successful')))
 
 
 if __name__ == '__main__':
